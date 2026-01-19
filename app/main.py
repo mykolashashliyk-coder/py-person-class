@@ -17,11 +17,12 @@ def create_person_list(people: list[dict]) -> list[Person]:
     for data in people:
         person = Person.people[data["name"]]
 
-        if data.get("wife") is not None:
-            person.wife = Person.people[data.get("wife")]
+        wife = data.get("wife")
+        if wife is not None:
+            person.wife = Person.people[wife]
 
-        if data.get("husband") is not None:
-            person.husband = Person.people[data.get("husband")]
+        husband = data.get("husband")
+        if husband is not None:
+            person.husband = Person.people[husband]
 
     return persons
-
